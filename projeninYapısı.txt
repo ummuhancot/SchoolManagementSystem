@@ -1,0 +1,75 @@
+
+
+### **Ana Bileşenler ve Açıklamaları**
+
+1. **SECURITY (Güvenlik)**
+   - Uygulamada güvenlik mekanizmalarını ifade eder. Yetkilendirme, kimlik doğrulama ve erişim kontrolleri burada yönetilir.
+
+2. **SECURITY CONTEXT (Güvenlik Bağlamı)**
+   - Kullanıcıların kimlik bilgilerini ve yetkilendirme detaylarını tutan bir bağlamdır. Örneğin, giriş yapmış kullanıcı bilgilerini saklar.
+
+3. **CORE CONTEXT (Çekirdek Bağlam)**
+   - Spring uygulamalarında Bean yönetimi gibi temel bileşenlerin yer aldığı bağlamdır.
+
+4. **LOGGING (Günlükleme - Loglama)**
+   - Uygulamanın çalışmasını izlemek ve hata ayıklamak için kullanılan loglama sistemini ifade eder.
+
+5. **CONFIGURATION (Konfigürasyon - Yapılandırma)**
+   - Uygulamanın yapılandırma ayarlarını içeren bölümdür. Örneğin, Spring Boot'ta `application.properties` veya `application.yml` dosyalarında yapılan ayarlamalar burada kullanılır.
+
+6. **EXCEPTION HANDLING (İstisna Yönetimi - Hata Yönetimi)**
+   - Uygulamada oluşabilecek hataları yakalamak ve yönetmek için kullanılan mekanizmadır.
+
+---
+
+### **Katmanlı Mimari ve Açıklamaları**
+
+7. **CONTROLLER (Denetleyici Katmanı)**
+   - HTTP isteklerini alıp uygun servislere yönlendiren katmandır. MVC mimarisinde "Controller" olarak bilinir.
+
+8. **SERVICE (Servis Katmanı)**
+   - İş mantığını içeren katmandır. Veritabanından alınan verilerin işlenmesi veya birleştirilmesi gibi işlemler burada yapılır.
+
+9. **REPOSITORY (Veri Katmanı - Depo Katmanı)**
+   - Veritabanı işlemlerini gerçekleştiren katmandır. Spring Data JPA gibi teknolojiler kullanılarak veri yönetimi sağlanır.
+
+10. **DB (Veritabanı - Database)**
+    - Uygulamanın kalıcı veri saklama alanıdır. PostgreSQL, MySQL veya başka bir veritabanı olabilir.
+
+---
+
+### **Veri ve Dönüşüm Katmanları**
+
+11. **PAYLOAD**
+    - API isteklerinde ve cevaplarında taşınan veri paketidir. Genellikle JSON veya XML formatında olabilir.
+
+12. **DTO / DAO (Data Transfer Object / Data Access Object)**
+    - DTO (Veri Transfer Nesnesi): Verileri taşımak için kullanılan nesnedir.
+    - DAO (Veri Erişim Nesnesi): Veritabanına erişimi sağlayan nesnedir.
+
+13. **ENTITY (Varlık Katmanı)**
+    - Veritabanı tablolarına karşılık gelen nesnelerdir. Spring Data JPA ile eşlenerek veritabanındaki yapıyı temsil eder.
+
+14. **MAPPER (Dönüştürücü - Eşleyici)**
+    - DTO ile Entity arasında veri dönüşümü yapmak için kullanılır. MapStruct gibi kütüphaneler kullanılabilir.
+
+---
+
+### **Diğer Yardımcı Bileşenler**
+
+15. **validator (Doğrulayıcı)**
+    - Kullanıcıdan gelen verilerin doğruluğunu kontrol etmek için kullanılır. Örneğin, `@Valid` veya `@NotNull` gibi Spring doğrulama anotasyonları burada devreye girer.
+
+16. **pageableHelper (Sayfalama Yardımcısı)**
+    - Büyük veri setlerini sayfalama (pagination) ile yönetmek için kullanılan bir yardımcı sınıftır. Spring Data JPA'nın `Pageable` arayüzü kullanılabilir.
+
+---
+
+### **Özet**
+Bu görsel, tipik bir **Spring Boot çok katmanlı mimari yapısını** gösteriyor.
+- **Güvenlik (Security)** ve **Core Context** üst seviyede yer alıyor.
+- **Controller → Service → Repository → Database** şeklinde tipik bir iş akışı var.
+- **DTO, Entity, Mapper ve Validator** gibi yardımcı bileşenler veri yönetimi ve işlenmesinde görev alıyor.
+- **Exception Handling, Logging ve Configuration** uygulamanın genel yönetimini sağlıyor.
+
+Bu mimari genellikle **Spring Boot Rest API projelerinde** kullanılır.
