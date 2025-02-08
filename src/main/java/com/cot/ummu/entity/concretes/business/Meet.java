@@ -18,7 +18,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Meet {
+public class Meet {//tanışmak yani toplantı
 
 
 
@@ -26,7 +26,7 @@ public class Meet {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String description;
+    private String description;//tanım
 
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd")
     private LocalDate date;
@@ -38,7 +38,7 @@ public class Meet {
     private LocalTime stopTime;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    private User advisoryTeacher;
+    private User advisoryTeacher;//danışman öğretmen
 
     @ManyToMany
     @JoinTable(

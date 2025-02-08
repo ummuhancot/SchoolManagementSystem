@@ -16,14 +16,14 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class EducationTerm {
+public class EducationTerm {//Eğitim Dönemi
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Enumerated(EnumType.STRING)
-    private Term term;
+    private Term term;//güz dönemi,bahar dönemi mi ?
 
     @Column(name = "start_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd")
@@ -35,10 +35,10 @@ public class EducationTerm {
 
     @Column(name = "last_registration_date")
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd")
-    private LocalDate lastRegistrationDate;
+    private LocalDate lastRegistrationDate;//son kayıt tarihi
 
     @OneToMany(mappedBy = "educationTerm",cascade = CascadeType.ALL)
-    private List<LessonProgram>lessonProgram;
+    private List<LessonProgram>lessonProgram;//ders programı
 
 
 

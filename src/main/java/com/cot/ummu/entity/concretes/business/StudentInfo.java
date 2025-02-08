@@ -17,7 +17,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class StudentInfo {
+public class StudentInfo {//ögrenci bilgileri
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,16 +25,16 @@ public class StudentInfo {
 
     private Integer absentee;//devamsızlık kac defa gelmemiş
 
-    private Double midtermExam;
+    private Double midtermExam;//ara sınavlar
 
-    private Double finalExam;
+    private Double finalExam;//final sınavı
 
-    private String infoNote;
+    private String infoNote;//bilgi notu
 
-    private Double examAverage;
+    private Double examAverage;//sınav ortalaması
 
     @Enumerated(EnumType.STRING)
-    private Note letterGrade;
+    private Note letterGrade;//harf Derecesi
 
     @ManyToOne
     @JsonIgnore
@@ -45,10 +45,10 @@ public class StudentInfo {
     private User student;
 
     @ManyToOne
-    private Lesson lesson;
+    private Lesson lesson;//ders
 
     @OneToOne
-    private EducationTerm educationTerm;
+    private EducationTerm educationTerm;//eğitim Dönemi
 
 
 

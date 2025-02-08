@@ -15,23 +15,22 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class Lesson {
+public class Lesson {//ders
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
 
-    private String lessonName;
+    private String lessonName;//ders adı
 
-    private Integer creditScore;
+    private Integer creditScore;//kredi Puanı
 
-    private Boolean inCompulsory;
+    private Boolean inCompulsory;//zorunlu
 
     @JsonIgnore
     @ManyToMany(mappedBy = "lessons")//,cascade = CascadeType.REMOVE kaldırdık.
-    private Set<LessonProgram> lessonPrograms;
-
+    private Set<LessonProgram> lessonPrograms;//ders programı
 
 
 

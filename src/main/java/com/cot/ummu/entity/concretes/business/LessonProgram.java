@@ -19,7 +19,7 @@ import java.util.Set;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class LessonProgram {
+public class LessonProgram {//ders programı
 
 
     @Id
@@ -52,7 +52,7 @@ public class LessonProgram {
 
 
     @PreRemove
-    private void removeLessonFromUser(){
+    private void removeLessonFromUser(){//Kullanıcıdan Dersi kaldır
         users.forEach(user -> user.getLessonProgramList().remove(this));
     }
 
