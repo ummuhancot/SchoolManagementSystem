@@ -49,7 +49,7 @@ public class User {
     private String phoneNumber;
 
     @Column(unique = true)
-    private String elmail;
+    private String email;
 
     private Boolean buildIn;//propertisine değiştirilip değiştiremeyeceğine karar vermek icin kullanıycaz
 

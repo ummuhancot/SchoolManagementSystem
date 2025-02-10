@@ -1,0 +1,14 @@
+Java'da "builder" deseni, özellikle karmaşık nesne oluşturma süreçlerini daha okunabilir ve yönetilebilir hale getirmek için kullanılan bir tasarım desenidir. Bu deseni uygulamak için elle kod yazılabileceği gibi, Lombok gibi kütüphaneler de @Builder gibi anotasyonlar sunarak bu işlemi otomatikleştirir.
+
+Lombok @Builder Anotasyonu Nedir?
+@Builder anotasyonu, Lombok kütüphanesi tarafından sağlanır ve bir sınıf veya metod için otomatik olarak bir "builder" sınıfı oluşturur. Bu sayede, sınıfınızın nesnelerini daha okunabilir, zincirleme (fluent) metod çağrılarıyla oluşturabilirsiniz. Özellikle çok sayıda parametreye sahip veya bazı parametreleri opsiyonel olan sınıflar için bu desen oldukça kullanışlıdır.
+
+Temel Özellikleri
+Okunabilir Kod: Nesneleri oluştururken, hangi değerin hangi alanı temsil ettiğini metod isimleri sayesinde rahatça görebilirsiniz.
+Zincirleme (Fluent) Kullanım: Oluşturma sürecinde metodları zincirleme şekilde çağırarak daha temiz bir kod yazabilirsiniz.
+Opsiyonel Parametreler: Farklı kombinasyonlarda parametrelerin verilmesine olanak tanır, böylece birden fazla constructor yazma gereksinimini ortadan kaldırır.                                Builder Deseninin Avantajları
+İnşa Sürecinin Yönetilmesi: Karmaşık nesnelerin adım adım inşasını sağlar.
+Immutable Nesneler: Genellikle immutable (değişmez) nesneler oluştururken tercih edilir, çünkü nesne oluşturulduktan sonra alanlar değiştirilemez.
+Kod Tekrarını Azaltır: Farklı parametre kombinasyonları için birden fazla constructor yazmak yerine tek bir builder yapısı kullanılır.
+Sonuç
+Java'da @Builder anotasyonu, özellikle Lombok kütüphanesi ile birlikte kullanıldığında, nesne oluşturma işlemlerini kolaylaştırır, kodun okunabilirliğini artırır ve bakımı daha da basitleştirir. Builder desenini uygulamak manuel olarak da yapılabilir ancak Lombok sayesinde bu işlem otomatikleştirilir ve yazılan kod miktarı azalır.
