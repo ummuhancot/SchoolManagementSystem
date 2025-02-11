@@ -2,11 +2,11 @@ package com.cot.ummu.service.helpar;
 
 
 import com.cot.ummu.entity.concretes.user.User;
+import com.cot.ummu.exception.BadRequestException;
 import com.cot.ummu.exception.ResourceNotFoundException;
 import com.cot.ummu.payload.messages.ErrorMessages;
 import com.cot.ummu.repository.user.UserRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.jca.cci.RecordTypeNotSupportedException;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -21,6 +21,19 @@ public class MethodHelper {
                 .orElseThrow(()->new ResourceNotFoundException(String.format(ErrorMessages.NOT_FOUND_USER_MESSAGE, id )));
     }
 
+    public void checkBuildIn(User user){
+        if (user.getBuildIn()){
+            throw  new BadRequestException(ErrorMessages.NOT_PERMITTED_METHOD_MESSAGE);
 
+        }
+    }
+
+    public User loadByUserName(String username){
+        User user = userRepository.findByUsername(username);
+        if (user==null){
+            throw new ResourceNotFoundException(String.format(ErrorMessages.NOT_FOUND_USER_MESSAGE,username));
+        }
+        return user;
+    }
 
 }
