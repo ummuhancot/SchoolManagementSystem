@@ -1,9 +1,11 @@
 package com.cot.ummu.security.jwt;
 
+import com.cot.ummu.security.service.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -20,6 +22,13 @@ public class JwtUtils {
     private String jwtSecret;
 
 
+    public String generateToken(Authentication authentication){
+        UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
+        return buildTokenFromUsername(userDetails.getUsername());
+    }
+
+
+
     /**
      *
      * @param username of the user
@@ -27,7 +36,7 @@ public class JwtUtils {
      */
 
 
-    private String buildTokenFromUsername(String username){
+    public String buildTokenFromUsername(String username){
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())
@@ -56,7 +65,7 @@ public class JwtUtils {
 
 
 
-    private String getUserNameFromToken(String token){
+    public String getUserNameFromToken(String token){
         return Jwts.parser()
                 .setSigningKey(jwtSecret)
                 .parseClaimsJws(token)
