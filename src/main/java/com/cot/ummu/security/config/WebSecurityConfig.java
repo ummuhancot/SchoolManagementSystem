@@ -7,7 +7,9 @@ import com.cot.ummu.security.service.UserDetailServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -15,6 +17,9 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @EnableWebSecurity
 @Configuration
@@ -46,11 +51,11 @@ public class WebSecurityConfig {
                 .anyRequest().authenticated();
                 //configure frames to be sure from the same origin
                 http.headers().frameOptions().sameOrigin();//aynı originde olup olmadığını kontrol eder yani aynı ıp den gelilip gelmediği kontrol edilir
-/*
-1,26 dk
-* */
-
-
+                //configure authentication provider
+                http.authenticationProvider(authenticationProvider());
+                //configure JWT token handler
+                http.addFilterBefore(authenticationJwtTokenFilter(), UsernamePasswordAuthenticationFilter.class);
+                return http.build();
     }
 
     @Bean
@@ -58,10 +63,7 @@ public class WebSecurityConfig {
         DaoAuthenticationProvider authprovider = new DaoAuthenticationProvider();
         authprovider.setUserDetailsService(userDetailService);
         authprovider.setPasswordEncoder(passwordEncoder());
-
-
-
-
+        return authprovider;
     }
 
     @Bean
@@ -79,6 +81,28 @@ public class WebSecurityConfig {
         return new AuthTokenFilter();
     }
 
+    @Bean
+    public AuthenticationManager authenticationManager(AuthenticationConfiguration configuration) throws Exception{
+        return configuration.getAuthenticationManager();
+    }
+
+
+
+
+
+    @Bean
+    public WebMvcConfigurer corsConfigurer(){
+        return new WebMvcConfigurer() {
+            @Override
+            public void addCorsMappings(CorsRegistry registry) {
+                registry.addMapping("/**")
+                //we let all sources to call our APIs
+                        .allowedOrigins("*")
+                        .allowedHeaders("*")
+                        .allowedMethods("*");
+            }
+        };
+    }
 
     private static final String[] AUTH_WHITELIST = {
             "/v3/api-docs/**",
