@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
@@ -114,5 +115,9 @@ public class UserService {
         userRepository.save(user);
         return SuccessMessages.USER_UPDATE;
 
+    }
+
+    public List<User> getAllUsers(){
+        return userRepository.findAll();
     }
 }

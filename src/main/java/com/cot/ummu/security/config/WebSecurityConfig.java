@@ -32,6 +32,8 @@ public class WebSecurityConfig {
     //diğer pakette oluşturduğumuz security exception classını buraya gömmüş olduk
     private final AuthEntryPointJwt authEntryPointJwt;
 
+
+
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
 
