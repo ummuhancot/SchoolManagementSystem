@@ -3,29 +3,12 @@ package com.cot.ummu.payload.mappers;
 import com.cot.ummu.entity.concretes.business.EducationTerm;
 import com.cot.ummu.payload.request.bussines.EducationTermRequest;
 import com.cot.ummu.payload.response.businnes.EducationTermResponse;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
 
 
+
+@Component
 public class EducationTermMapper {
-
-
-    /**
-     *
-     * @param educationTerm Entity fetched from DB
-     * @return EducationTermResponse DTO
-     */
-
-    public EducationTermResponse mapEducationTermToEducationTermResponse(EducationTerm educationTerm){
-
-        return EducationTermResponse.builder()
-                .term(educationTerm.getTerm())
-                .startDate(educationTerm.getStartDate())
-                .endDate(educationTerm.getEndDate())
-                .lastRegistrationDate(educationTerm.getLastRegistrationDate())
-                .build();
-    }
 
 
     /**
@@ -42,12 +25,20 @@ public class EducationTermMapper {
                 .build();
     }
 
-    public List<EducationTermResponse> mapToResponseList(List<EducationTerm> allEducationTerm){
-        return allEducationTerm.stream()
-                .map(this::mapEducationTermToEducationTermResponse)
-                .collect(Collectors.toList());
+    /**
+     *
+     * @param educationTerm Entity fetched from DB
+     * @return EducationTermResponse DTO
+     */
+    public EducationTermResponse mapEducationTermToEducationTermResponse(EducationTerm educationTerm){
+        return EducationTermResponse.builder()
+                .id(educationTerm.getId())
+                .term(educationTerm.getTerm())
+                .startDate(educationTerm.getStartDate())
+                .endDate(educationTerm.getEndDate())
+                .lastRegistrationDate(educationTerm.getLastRegistrationDate())
+                .build();
     }
-
 
 
 
