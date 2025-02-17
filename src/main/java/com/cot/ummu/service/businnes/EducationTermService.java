@@ -19,6 +19,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
+import java.util.Arrays;
 
 @Service
 @RequiredArgsConstructor
@@ -110,6 +111,18 @@ public class EducationTermService {
         return educationTerms.map(educationTermMapper::mapEducationTermToEducationTermResponse);
     }
 
+
+    public ResponseMessage deleteById(Long edicationTermId) {
+        isEducationTermExist(edicationTermId);
+        educationTermRepository.deleteById(edicationTermId);
+        return ResponseMessage.builder()
+                .message(SuccessMessages.EDUCATION_TERM_DELETE)
+                //.returnBody(Arrays.asList("Ali","Veli","49")) burdada her şeyi geri döndürebiliriz Object type olur ve çalışır.
+                //ne döndürdügü belli değil tam belirlediğin şeyi döndürmek daha güzel olur frontent kabul etmeye bilir.
+                .httpStatus(HttpStatus.OK)
+                .build();
+
+    }
 
 
 }

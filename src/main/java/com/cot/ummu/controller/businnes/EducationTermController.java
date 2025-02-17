@@ -10,6 +10,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -63,6 +64,15 @@ public class EducationTermController {
         return educationTermService.getByPage(page,size,sort,type);
     }
 
+
+    //  List<String> strings = new ArrayList<>();
+    //  List strings = new ArrayList<>();
+    //  böylede kullanılıyor bunu göstermek icin deleteById böyle ResponseMessage olarak döndürdük
+    @PreAuthorize("hasAnyAuthority('Admin','Dean','ViceDean','Teacher')")
+    @DeleteMapping("/delete/{educationTermId}")
+    public ResponseMessage deleteEducationTerm(Long edicationTermId){
+        return educationTermService.deleteById(edicationTermId);
+    }
 
 
 

@@ -3,8 +3,9 @@ package com.cot.ummu.service.user;
 import com.cot.ummu.payload.request.authentication.LoginRequest;
 import com.cot.ummu.payload.response.authentication.AuthenticationResponse;
 import com.cot.ummu.repository.user.UserRepository;
-import com.cot.ummu.security.jwt.JwtUtils;
-import com.cot.ummu.security.service.UserDetailsImpl;
+
+import com.cot.ummu.securtiy.jwt.JwtUtils;
+import com.cot.ummu.securtiy.service.UserDetailsImpl;
 import com.cot.ummu.service.helpar.MethodHelper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
