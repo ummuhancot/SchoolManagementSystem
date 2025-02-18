@@ -20,6 +20,8 @@ import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -125,4 +127,15 @@ public class EducationTermService {
     }
 
 
+    public List<EducationTermResponse> getAllEducationTerms() {
+        List<EducationTerm> allEducationTerms = educationTermRepository.findAll();
+
+        return allEducationTerms.stream().map(educationTermMapper::mapEducationTermToEducationTermResponse).collect(Collectors.toList());
+    }
+
 }
+
+
+
+
+

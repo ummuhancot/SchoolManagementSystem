@@ -39,12 +39,12 @@ public class EducationTermController {
 
 
 
-   /* //TODO:service ve repository yap
+   //TODO:service ve repository yap
     @PreAuthorize("hasAnyAuthority('Admin','Dean','ViceDean','Teacher')")
     @PostMapping("/getAll")
     public List<EducationTermResponse> getAllEducationTerms(){
         return educationTermService.getAllEducationTerms();
-    }*/
+    }
 
    /* //TODO:esra
     @PreAuthorize("hasAnyAuthority('Admin','Dean','ViceDean','Teacher')")

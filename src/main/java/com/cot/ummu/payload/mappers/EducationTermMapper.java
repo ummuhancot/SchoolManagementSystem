@@ -5,6 +5,8 @@ import com.cot.ummu.payload.request.bussines.EducationTermRequest;
 import com.cot.ummu.payload.response.businnes.EducationTermResponse;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Component
