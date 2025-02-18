@@ -26,7 +26,7 @@ public class Lesson {//ders
 
     private Integer creditScore;//kredi Puanı
 
-    private Boolean inCompulsory;//zorunlu
+    private Boolean isCompulsory;//zorunlu
 
     @JsonIgnore
     @ManyToMany(mappedBy = "lessons")//,cascade = CascadeType.REMOVE kaldırdık.

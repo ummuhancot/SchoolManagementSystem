@@ -46,12 +46,12 @@ public class EducationTermController {
         return educationTermService.getAllEducationTerms();
     }
 
-   /* //TODO:esra
+   //TODO:esra
     @PreAuthorize("hasAnyAuthority('Admin','Dean','ViceDean','Teacher')")
-    @PostMapping("/{educationTermId}")
-    public EducationTermResponse getEducationTerm(Long educationTermId){
-        return educationTermService.getEducationTermById(educationTermId);
-    }*/
+  @GetMapping("/{educationTermId}")
+  public EducationTermResponse getEducationTerm(@PathVariable Long educationTermId) {
+    return educationTermService.getEducationTermById(educationTermId);
+  }
 
     @PreAuthorize("hasAnyAuthority('Admin','Dean','ViceDean','Teacher')")
     @PostMapping("/getByPage")

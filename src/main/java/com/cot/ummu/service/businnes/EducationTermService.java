@@ -133,6 +133,13 @@ public class EducationTermService {
         return allEducationTerms.stream().map(educationTermMapper::mapEducationTermToEducationTermResponse).collect(Collectors.toList());
     }
 
+    public EducationTermResponse getEducationTermById(Long educationTermId) {
+        // Validate if the education term exists in the database
+        EducationTerm educationTerm = isEducationTermExist(educationTermId);
+        // Map the entity to DTO and return the response
+        return educationTermMapper.mapEducationTermToEducationTermResponse(educationTerm);
+    }
+
 }
 
 
