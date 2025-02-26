@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 
@@ -16,22 +17,19 @@ import java.util.Set;
 @NoArgsConstructor
 @Builder
 public class Lesson {//ders
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    private String lessonName;
 
-    private String lessonName;//ders adı
+    private Integer creditScore;
 
-    private Integer creditScore;//kredi Puanı
-
-    private Boolean isCompulsory;//zorunlu
+    private Boolean isCompulsory;
 
     @JsonIgnore
-    @ManyToMany(mappedBy = "lessons")//,cascade = CascadeType.REMOVE kaldırdık.
-    private Set<LessonProgram> lessonPrograms;//ders programı
-
+    @ManyToMany(mappedBy = "lessons")
+    private List<LessonProgram> lessonPrograms;
 
 
 

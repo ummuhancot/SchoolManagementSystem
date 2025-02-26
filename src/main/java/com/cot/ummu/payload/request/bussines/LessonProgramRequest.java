@@ -1,6 +1,5 @@
 package com.cot.ummu.payload.request.bussines;
 
-
 import com.cot.ummu.entity.enums.Day;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
@@ -11,7 +10,7 @@ import lombok.NoArgsConstructor;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.time.LocalTime;
-import java.util.Set;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -19,24 +18,22 @@ import java.util.Set;
 @Builder
 public class LessonProgramRequest {
 
-    @NotNull(message="Please enter day")
-    private Day day;
+  @NotNull(message="Please enter day")
+  private Day day;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm", timezone = "US")
-    @NotNull(message="Please enter start time")
-    private LocalTime startTime;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm", timezone = "US")
+  @NotNull(message="Please enter start time")
+  private LocalTime startTime;
 
-    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm", timezone = "US")
-    @NotNull(message="Please enter stop time")
-    private LocalTime stopTime;
+  @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "HH:mm", timezone = "US")
+  @NotNull(message="Please enter stop time")
+  private LocalTime stopTime;
 
-    @NotNull(message="Please select lesson")
-    @Size(min=1, message ="Lesson must not be empty")
-    private Set<Long> lessonIdList;
+  @NotNull(message="Please select lesson")
+  @Size(min=1, message ="Lesson must not be empty")
+  private List<Long> lessonIdList;
 
-    @NotNull(message="Please enter education term")
-    private Long educationTermId;
-
-
+  @NotNull(message="Please enter education term")
+  private Long educationTermId;
 
 }

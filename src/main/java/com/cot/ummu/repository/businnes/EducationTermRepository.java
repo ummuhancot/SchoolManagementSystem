@@ -9,14 +9,15 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface EducationTermRepository extends JpaRepository<EducationTerm,Long> {
+public interface EducationTermRepository extends JpaRepository<EducationTerm, Long> {
 
-    @Query("select (count (e) > 0) from EducationTerm e where e.term=?1 and extract(year from e.startDate) = ?2")
-    boolean existByTermAndYear(Term term, int year);//bütün edicationterm i gönderemeyiz dönem ve yılı girdik
 
-    //girilen yılda var olan education term'leri geri döndüren sorgu
-    @Query("select e from EducationTerm e where extract(year from e.startDate) = ?1")
-    List<EducationTerm> findByYear(int year);
+  @Query("select (count (e) > 0) from EducationTerm e where e.term=?1 and extract(year from e.startDate) =?2 ")
+  boolean existByTermAndYear(Term term, int year);
+
+  //girilen yilda var olan education term'leri geri dönduren sorgu
+  @Query("select e from EducationTerm e where extract(year from e.startDate) =?1 ")
+  List<EducationTerm>findByYear(int year);
 
 
 }

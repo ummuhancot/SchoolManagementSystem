@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0"
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.7.6</version>
+    <version>2.7.5</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
-  <groupId>com.cot</groupId>
-  <artifactId>SchoolManagementSystem</artifactId>
+  <groupId>com.techproed</groupId>
+  <artifactId>school-management-backend-b326</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>SchoolManagementSystem</name>
-  <description>SchoolManagementSystem</description>
+  <name>school-management-backend-b326</name>
+  <description>school-management-backend-b326</description>
+
+  <properties>
+    <org.mapstruct.version>1.6.3</org.mapstruct.version>
+    <postgres.version>42.6.0</postgres.version>
+  </properties>
+
   <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
@@ -38,7 +44,7 @@
     <dependency>
       <groupId>org.postgresql</groupId>
       <artifactId>postgresql</artifactId>
-      <version>42.6.0</version>
+      <version>${postgres.version}</version>
       <scope>runtime</scope>
     </dependency>
     <dependency>
@@ -62,14 +68,29 @@
       <artifactId>jjwt</artifactId>
       <version>0.9.1</version>
     </dependency>
+    <!-- MapStruct Dependency ****************-->
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${org.mapstruct.version}</version>
+    </dependency>
+    <!-- According to MapStruct documentation:
+    Thanks to this dependency, we will not have to configure Annotation Processor settings in IntelliJ -->
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct-processor</artifactId>
+      <version>${org.mapstruct.version}</version>
+      <optional>true</optional>
+    </dependency>
+
 
     <!-- SWAGGER ****************-->
-    <dependency>
-      <groupId>org.springdoc</groupId>
-      <artifactId>springdoc-openapi-ui</artifactId>
-      <version>1.6.9</version>
-    </dependency>
-    
+    <!--    <dependency>-->
+    <!--      <groupId>org.springdoc</groupId>-->
+    <!--      <artifactId>springdoc-openapi-ui</artifactId>-->
+    <!--      <version>1.6.9</version>-->
+    <!--    </dependency>-->
+
   </dependencies>
 
   <build>
