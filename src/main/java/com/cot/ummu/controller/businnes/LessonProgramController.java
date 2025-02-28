@@ -33,6 +33,8 @@ public class LessonProgramController {
     return lessonProgramService.getAllLessonPrograms();
   }
 
+
+  //TODO LEVEN
   @PreAuthorize("hasAnyAuthority('Admin','Dean','ViceDean','Teacher','Student')")
   @GetMapping("/getLessonProgram/{id}")
   public LessonProgramResponse getLessonProgramById(@PathVariable Long id) {

@@ -1,10 +1,10 @@
 package com.cot.ummu.controller.businnes;
 
+
 import com.cot.ummu.payload.request.bussines.ContactMessageRequest;
 import com.cot.ummu.payload.response.businnes.ContactMessageResponse;
 import com.cot.ummu.payload.response.businnes.ResponseMessage;
 import com.cot.ummu.service.businnes.ContactMessageService;
-
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;

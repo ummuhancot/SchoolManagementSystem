@@ -1,5 +1,6 @@
 package com.cot.ummu.repository.businnes;
 
+
 import com.cot.ummu.entity.concretes.business.EducationTerm;
 import com.cot.ummu.entity.enums.Term;
 import org.springframework.data.jpa.repository.JpaRepository;

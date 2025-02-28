@@ -2,7 +2,6 @@ package com.cot.ummu.payload.messages;
 
 public class SuccessMessages {
 
-  //contracter olusturduk
   private SuccessMessages() {
   }
 
@@ -70,7 +69,5 @@ public class SuccessMessages {
   public static final String MESSAGE_UPDATE = "Message has been updated successfully";
   public static final String ALL_MESSAGES_FETCHED = "All messages fetched successfully";
   public static final String MESSAGES_FETCHED_BY_EMAIL = "Messages fetched successfully by email : %s";
-
-
 
 }

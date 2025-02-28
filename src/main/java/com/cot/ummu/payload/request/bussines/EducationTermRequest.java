@@ -15,22 +15,19 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Builder
 public class EducationTermRequest {
+  @NotNull(message = "Education term must not be empty")
+  private Term term;
 
-    @NotNull(message = "Education term must not be empty")
-    private Term term;
+  @NotNull(message = "Start date must not be empty")
+  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+  private LocalDate startDate;
 
-    @NotNull(message = "Start Date term must not be empty")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd")
-    private LocalDate startDate;
+  @NotNull(message = "End date must not be empty")
+  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+  private LocalDate endDate;
 
-    @NotNull(message = "End Date term must not be empty")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd")
-    private LocalDate endDate;
-
-    @NotNull(message = "Last Registration Date term must not be empty")
-    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "yyyy-MM-dd")
-    private LocalDate lastRegistrationDate;
-
-
+  @NotNull(message = "Last registration date must not be empty")
+  @JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+  private LocalDate lastRegistrationDate;
 
 }

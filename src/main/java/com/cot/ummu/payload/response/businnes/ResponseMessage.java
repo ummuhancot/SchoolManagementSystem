@@ -7,16 +7,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 
-
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ResponseMessage <T>{
+public class ResponseMessage <T> {
 
-    private T returnBody;
-    private String message;
-    private HttpStatus httpStatus;
+   private T returnBody;
+   private String message;
+   private HttpStatus httpStatus;
+
 
 }

@@ -14,10 +14,11 @@ import java.time.LocalDate;
 @Builder
 public class EducationTermResponse {
 
-    private Long id;
-    private Term term;
-    private LocalDate startDate;
-    private LocalDate endDate;
-    private LocalDate lastRegistrationDate;
+  private Long id;
+  private Term term;
+  private LocalDate startDate;
+  private LocalDate endDate;
+  private LocalDate lastRegistrationDate;
+
 
 }
